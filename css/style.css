@@ -1,0 +1,12 @@
+.card {
+  border: 1px solid blue;
+  display: inline-block;
+  background-color:black;
+  color:white;
+	width:25%;
+	height:300px;
+	font-size:4em;
+  font-weight: bold;
+	text-align:center;
+  vertical-align: middle;
+}
