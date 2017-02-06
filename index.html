@@ -4,14 +4,33 @@
 <head>
     <meta charset="utf-8">
     <title>Jeu Memory</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/home/romain/Code/memory/css/style.css">
+
 </head>
 
 <body>
-    <div class="board">
+    <section id="board">
 
-    </div>
+    </section>
+    <script>
+    var cardsNumber = 12;
+    var boardElement = document.getElementById("board");
+
+    for (var i = 0; i < cardsNumber/2; i++) {
+      var cardElement = document.createElement("div");
+      cardElement.innerHTML = i;
+      cardElement.className = "card"
+      boardElement.appendChild (cardElement);
+      var cardElement = document.createElement("div");
+      cardElement.innerHTML = i;
+      cardElement.className = "card"
+      boardElement.appendChild (cardElement);
+      console.log("plop");
+
+
+  }
+
+    </script>
 </body>
 
 </html>
