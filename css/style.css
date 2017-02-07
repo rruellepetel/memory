@@ -3,10 +3,23 @@
   display: inline-block;
   background-color:black;
   color:white;
-	width:25%;
+	width:250px;
 	height:300px;
 	font-size:4em;
   font-weight: bold;
 	text-align:center;
   vertical-align: middle;
+  position: relative;
+}
+.hidden {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width:250px;
+	height:300px;
+    background-color: pink;
+}
+section {
+    width: 1550px;
+    margin: auto;
 }

@@ -15,21 +15,57 @@
     <script>
     var cardsNumber = 12;
     var boardElement = document.getElementById("board");
+    var tablo = aleatoir(cardsNumber);
 
-    for (var i = 0; i < cardsNumber/2; i++) {
-      var cardElement = document.createElement("div");
-      cardElement.innerHTML = i;
-      cardElement.className = "card"
-      boardElement.appendChild (cardElement);
-      var cardElement = document.createElement("div");
-      cardElement.innerHTML = i;
-      cardElement.className = "card"
-      boardElement.appendChild (cardElement);
-      
+    for (var i = 0; i < cardsNumber; i++) {
+        var cardElement = document.createElement("div");
+        cardElement.innerHTML = tablo[i];
+        cardElement.className = "card"
+        boardElement.appendChild (cardElement);
 
+        var cacheElement = document.createElement("div");
+        cacheElement.className = "hidden"
+        cardElement.appendChild (cacheElement);
+        cacheElement.addEventListener("click", function(){
+            whenclick(this);
+        });
 
-  }
+    }
+    function aleatoir(cardsNumber){
+        var tab = [];
+        for (var i = 0; i < cardsNumber/2; i++){
+            tab.push(i);
+            tab.push(i);
+        }
 
+        for (var i = 0; i < 100; i++){
+            var random1 = Math.floor(Math.random()* cardsNumber);
+            var random2 = Math.floor(Math.random()* cardsNumber);
+
+            var save = tab[random1];
+
+            tab[random1] = tab[random2];
+            tab[random2] = save;
+        }
+    return tab;
+    }
+    var carte1 = null;
+    var carte2 = null;
+    function whenclick(element){
+        element.style.display = "none";
+        if(carte1 == null){
+            carte1 = element;
+        }else if(carte2 == null){
+            carte2 = element;
+        }else {
+            if(carte1.previousSibling.nodeValue != carte2.previousSibling.nodeValue){
+                carte1.style.display = "block";
+                carte2.style.display = "block";
+            }
+            carte1 = element;
+            carte2 = null;
+        }
+    }
     </script>
 </body>
 
